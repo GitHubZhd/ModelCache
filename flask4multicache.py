@@ -79,7 +79,11 @@ def user_backend():
             request_data = request.json
         elif request.method == 'GET':
             request_data = request.args
-        param_dict = json.loads(request_data)
+        # param_dict = json.loads(request_data)
+        request_data_json_str = json.dumps(request_data)
+        # 这里可以使用转换后的 JSON 字符串进行后续操作，例如打印
+        print(request_data_json_str)
+        param_dict = json.loads(request_data_json_str)
     except Exception as e:
         result = {"errorCode": 301, "errorDesc": str(e), "cacheHit": False, "delta_time": 0, "hit_query": '',
                   "answer": ''}

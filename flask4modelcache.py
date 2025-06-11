@@ -38,8 +38,8 @@ mysql_config.read('modelcache/config/mysql_config.ini')
 milvus_config = configparser.ConfigParser()
 milvus_config.read('modelcache/config/milvus_config.ini')
 
-es_config = configparser.ConfigParser()
-es_config.read('modelcache/config/elasticsearch_config.ini')
+# es_config = configparser.ConfigParser()
+# es_config.read('modelcache/config/elasticsearch_config.ini')
 
 # redis_config = configparser.ConfigParser()
 # redis_config.read('modelcache/config/redis_config.ini')
@@ -47,7 +47,7 @@ es_config.read('modelcache/config/elasticsearch_config.ini')
 # chromadb_config = configparser.ConfigParser()
 # chromadb_config.read('modelcache/config/chromadb_config.ini')
 
-data_manager = get_data_manager(CacheBase("elasticsearch", config=es_config),
+data_manager = get_data_manager(CacheBase("mysql", config=mysql_config),
                                 VectorBase("milvus", dimension=data2vec.dimension, milvus_config=milvus_config))
 
 
@@ -82,7 +82,11 @@ def user_backend():
             request_data = request.json
         elif request.method == 'GET':
             request_data = request.args
-        param_dict = json.loads(request_data)
+        # param_dict = json.loads(request_data)
+        request_data_json_str = json.dumps(request_data)
+        # 这里可以使用转换后的 JSON 字符串进行后续操作，例如打印
+        print(request_data_json_str)
+        param_dict = json.loads(request_data_json_str)
     except Exception as e:
         result = {"errorCode": 101, "errorDesc": str(e), "cacheHit": False, "delta_time": 0, "hit_query": '',
                   "answer": ''}

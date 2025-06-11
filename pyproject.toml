@@ -1,0 +1,37 @@
+[project]
+name = "modelcache"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "cachetools==5.3.1",
+    "DBUtils==1.4",
+    "Flask==3.0.0",
+    "numpy==1.24.4",
+    "onnxruntime==1.16.1",
+    "openai==0.28.1",
+    "pymilvus==2.3.1",
+    "PyMySQL==1.1.0",
+    "Requests==2.31.0",
+    "torch==2.1.1",
+    "transformers==4.38.2",
+    "faiss-cpu==1.7.4",
+    "redis==5.0.1",
+    "modelscope==1.14.0",
+    "fastapi==0.115.5",
+    "uvicorn==0.32.0",
+    "chromadb==0.5.23",
+    "elasticsearch==7.10.0",
+    "snowflake-id==1.0.2",
+    "flagembedding==1.2.8",
+    "marshmallow<3.19.0",
+    "opencv-python>=4.8.1.78",
+    "decord>=0.6.0",
+    "timm>=1.0.15",
+    "librosa>=0.11.0",
+    "fairseq>=0.12.2",
+    "unicodedata2>=16.0.0",
+    "zhconv>=1.4.3",
+    "rapidfuzz>=3.13.0",
+]
